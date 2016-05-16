@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sessions</h1>
+<span><%= @list_amount_message %></span><br>
+<% if @show_all_link %>
+<a href="?showall=1">Show all</a>
+<% end %><br>
+<table class="session_details">
+  <thead>
+    <tr>
+      <th>Session date</th>
+      <th>Truck</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventorysession.each do |inventorysession| %>
+      <tr>
+        <td><%= inventorysession.sessiondate.to_date %></td>
+        <td><%= inventorysession.truck.name %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', "/inventories/" + inventorysession.id.to_s, class: "btn small" %></td>
+        <td><%= link_to 'Delete', inventorysession, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn small negative" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% form_tag details_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<%= link_to 'Inventory Menu', inventorymain_path, class: "btn small left" %>

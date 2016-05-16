@@ -1,0 +1,35 @@
+<%= form_for(@detail) do |f| %>
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bhproduct_number%><br>
+    <%= f.number_field :bhproduct_number, :autofocus => true %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <% if params.has_key?(:inventorysession_id) %>
+    <div class="field hidden">
+      <%= f.label :inventorysession_id %><br>
+      <%= f.number_field :inventorysession_id, :value => params[:inventorysession_id]  %>
+  <% else %>
+    <div class="field">
+      <%= f.label :inventorysession_id %><br>
+      <%= f.number_field :inventorysession_id %>
+   <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

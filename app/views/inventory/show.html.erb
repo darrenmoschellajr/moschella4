@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory Date:&nbsp;</strong>
+  <%= @inventorysession.sessiondate.to_date %>
+</p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @inventorysession.truck.name %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <table class="details">
+    <% @count = 0 %>
+    <tbody>
+      <th>Product #</th><th>Name</th><th>Count</th><th>&nbsp;</th>
+  <% @inventorysession.detail.each do |detail| %>
+      <% @count = @count + 1 %>
+      <% if ((@count.to_i % 2) == 0) %>
+        <tr class="even">
+      <% else %>
+        <tr class="odd">
+      <% end %>
+        <td><%= detail.bhproduct_number %></td>
+        <td><%= Product.find_by(bhproduct_number: detail.bhproduct_number).name %></td>
+        <td style="text-align:center;"><%= detail.quantity %></td>
+        <td><%= link_to "Edit", edit_detail_path(detail), class: "btn x-small" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+</p>
+
+<div class="linkcontainter left"><%= link_to 'Add More Inventory', new_detail_path(:inventorysession_id => @inventorysession.id), class: "btn small left" %></div>
+
+
+<div class="linkcontainter left"><%= link_to 'Back', inventories_path, class: "btn small left"  %></div>
+<div class="linkcontainter left"><%= link_to 'Export CSV', url_for(format: :csv), class: "btn small left" %></div>

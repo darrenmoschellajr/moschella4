@@ -1,0 +1,1 @@
+<% headers = ['Productnumber','Name','QTY','Truck'] %><%= CSV.generate_line headers %><% @inventorysession.detail.each do |detail| %><%= CSV.generate_line([detail.bhproduct_number, Product.find_by(bhproduct_number: detail.bhproduct_number).name, detail.quantity, @inventorysession.truck.name]) %><% end %>

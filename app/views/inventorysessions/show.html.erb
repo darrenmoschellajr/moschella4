@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sessiondate:</strong>
+  <%= @inventorysession.sessiondate %>
+</p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @inventorysession.truck.name %>
+</p>
+
+<%= link_to 'Edit', edit_inventorysession_path(@inventorysession) %> |
+<%= link_to 'Back', inventorysession_path %>

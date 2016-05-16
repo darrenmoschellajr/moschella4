@@ -1,0 +1,7 @@
+# Be sure to restart your server when you modify this file.
+
+<<<<<<< HEAD
+Rails.application.config.session_store :cookie_store, key: '_example_session'
+=======
+Rails.application.config.session_store :cookie_store, key: '_rails-beanstalk_session'
+>>>>>>> 8eda1146272538d297b11bbcccb817e39a75f7cc

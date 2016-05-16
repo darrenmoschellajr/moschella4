@@ -1,0 +1,25 @@
+<%= form_for(@inventorysession) do |f| %>
+  <% if @inventorysession.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventorysession.errors.count, "error") %> prohibited this session from being saved:</h2>
+
+      <ul>
+      <% @inventorysession.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Date" %><br>
+    <%= f.date_select :sessiondate %>
+  </div>
+  <div class="field">
+    <%= f.label "Truck" %><br>
+    <%= collection_select(:inventorysession, :truck_id, @trucks, :id, :name, {:prompt =>false}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit  @submit_text%>
+  </div>
+<% end %>

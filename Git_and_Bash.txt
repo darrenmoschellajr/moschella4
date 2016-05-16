@@ -1,0 +1,7 @@
+To get Bash back
+rm -R .git
+
+To commit to git
+git init
+git add .
+git commit - "Moschella 1.0"

@@ -68,7 +68,7 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-      load 'lib/deploy/seed'
+      load 'lib/capistrano/products.rb'
     end
   end
 

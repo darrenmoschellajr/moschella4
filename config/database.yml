@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: moschella_production
-  username: moschella
+  database: example_production
+  username: example
   password: <%= ENV['EXAMPLE_DATABASE_PASSWORD'] %>

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Inventory Sessions</h1>
 
 <table class="details">
@@ -24,7 +22,7 @@
         <td><%= inventorysession.truck.name %></td>
         <td><%= link_to 'Show', inventorysession, class: "btn small" %></td>
         <td><%= link_to 'Edit', edit_inventorysession_path(inventorysession), class: "btn small" %></td>
-        <td><%= link_to 'Destroy', inventorysession, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn small negative" %></td>
+        <td><%= link_to 'Delete', inventorysession, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn small negative" %></td>
       </tr>
     <% end %>
   </tbody>

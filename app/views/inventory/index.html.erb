@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Sessions</h1>
 <span><%= @list_amount_message %></span><br>
 <% if @show_all_link %>
 <a href="?showall=1">Show all</a>
 <% end %><br>
-<table class="session_details">
+<table class="details">
+  <% @count = 0 %>
   <thead>
     <tr>
       <th>Session date</th>
@@ -16,7 +15,12 @@
 
   <tbody>
     <% @inventorysession.each do |inventorysession| %>
-      <tr>
+    <% @count = @count + 1 %>
+      <% if ((@count.to_i % 2) == 0) %>
+        <tr class="even">
+      <% else %>
+        <tr class="odd">
+      <% end %>
         <td><%= inventorysession.sessiondate.to_date %></td>
         <td><%= inventorysession.truck.name %>&nbsp;&nbsp;</td>
         <td><%= link_to 'Show', "/inventories/" + inventorysession.id.to_s, class: "btn small" %></td>

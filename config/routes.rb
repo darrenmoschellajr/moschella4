@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'inventories/:id', to: 'inventory#show'
   get 'inventorymain', to: 'inventorymain#index'
 
+
   resources :todos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

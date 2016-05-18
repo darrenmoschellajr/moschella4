@@ -1,20 +1,25 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Details</h1>
 
-<table>
+<table class="details">
+  <% @count = 0 %>
   <thead>
     <tr>
-      <th>Bhproduct number</th>
+      <th>Product number</th>
       <th>Quantity</th>
       <th>Session</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @details.each do |detail| %>
-      <tr>
+    <% @count = @count + 1 %>
+      <% if ((@count.to_i % 2) == 0) %>
+        <tr class="even">
+      <% else %>
+        <tr class="odd">
+      <% end %>
         <td><%= detail.bhproduct_number %></td>
         <td><%= detail.quantity %></td>
         <td><%= detail.inventorysession_id %></td>

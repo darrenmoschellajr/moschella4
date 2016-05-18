@@ -11,9 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :bhproduct_number%><br>
+  <div class="field" style="margin-bottom:0px">
+    <%= f.label "Product Number"%><br>
     <%= f.number_field :bhproduct_number, :autofocus => true %>
+    <div class="productLookupResult alert" id="productLookupResult" style="width:170px">
+      &nbsp;
+    </div>
   </div>
   <div class="field">
     <%= f.label :quantity %><br>
@@ -30,6 +33,6 @@
    <% end %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", :disabled => true, :id => "detailsSubmit"%>
   </div>
 <% end %>

@@ -134,11 +134,20 @@ table.details{
     &:hover{
         background: #000;
       }
+    &:disabled {
+    background: #dddddd;
+    }
   }
 }
 .linkcontainter{
   &.left{
     float: "left";
     margin-top: 8px;
+  }
+}
+.productLookupResult {
+  &.alert{
+    margin-bottom: 0px;
+    padding: 3px;
   }
 }

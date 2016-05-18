@@ -5,6 +5,20 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    
+    p = Product.find_by bhproduct_number: (params['bhproduct_number'])
+    if p
+      pname = p.name
+      response = "OK"
+    else
+      response = "BAD"
+    end
+
+    respond_to do |format|
+      msg = { :response => response, :name => pname}
+      format.json {render :json => msg}
+      format.html {}
+    end
   end
 
   # GET /products/1

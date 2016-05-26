@@ -347,3 +347,5 @@ Product.create( bhproduct_number:114, name:"Virginia Ham")
 Product.create( bhproduct_number:106, name:"Deluxe Ham Round To")
 Product.create( bhproduct_number:105, name:"Low Salt Ham")
 Product.create( bhproduct_number:103, name:"Deluxe Ham Lg Baby")
+
+Person.create( firstname:"Darren",lastname:"Moschella Jr.", email:"darrenmoschellajr@gmail.com", group:1)

@@ -35,5 +35,11 @@ ready =  ->
       lockButtonEmpty()
     return
    return
+focusField = ->
+  $("#detail_bhproduct_number").trigger("focus")
+  return
+
 $(document).ready(ready)
-$(document).on('page:load', ready);
+$(document).on('page:load', ready)
+$(document).ready(focusField)
+$(document).on('page:load',focusField)

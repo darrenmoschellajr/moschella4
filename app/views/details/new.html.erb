@@ -1,5 +1,7 @@
 <h1>New Detail</h1>
-
+<script>  
+  $("input#detail_bhproduct_number").trigger("click");
+</script>
 <%= render 'form' %>
 <% @sessionidparam = params[:inventorysession_id] %>
 <%= link_to 'Review Inventory', "/inventories/" + @sessionidparam.to_s, class: "btn small left" %>

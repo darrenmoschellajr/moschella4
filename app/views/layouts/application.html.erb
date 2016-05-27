@@ -8,6 +8,12 @@
   <%= favicon_link_tag  %>
   <meta name="viewport" content="width=device-width">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var mailRedirectCheck = (window.location.href).substring(7,11);
+    if(mailRedirectCheck=="mail"){
+      window.location.href = "https://bizrd.mail.yahoo.com/rd/rd.php?rdsc=1&srchost=mail.moschellaprovisions.com"
+    }
+  </script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

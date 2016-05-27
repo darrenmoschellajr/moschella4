@@ -33,10 +33,10 @@ a.btn {
   }
   &.small{
     width: initial;
-    font-size: 12px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    margin: 3px 0px 3px 0px;
+    font-size: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 4px 0px 4px 0px;
     &.negative{
       background: #fff;
       border: 1px solid red;
@@ -105,6 +105,11 @@ th{
   background: #5B9BD5;
   color: #FFF;
 }
+.field{
+  select{
+  font-size: 16px;
+  }
+}
 tr{
   &.odd{
     background: #DDEBF7;
@@ -127,7 +132,7 @@ table.details{
   input{
     border: 1px solid transparent;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 16px;
     color: rgb(255, 255, 255);
     padding: 2px 12px;
     background: #666;
@@ -141,8 +146,7 @@ table.details{
 }
 .linkcontainter{
   &.left{
-    float: "left";
-    margin-top: 8px;
+    margin-top: 12px;
   }
 }
 .productLookupResult {

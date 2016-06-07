@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: 
+  product: 
+  day: 
+  parlevel: 1
+
+two:
+  truck: 
+  product: 
+  day: 
+  parlevel: 1

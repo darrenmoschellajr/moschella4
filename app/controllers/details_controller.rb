@@ -16,11 +16,13 @@ class DetailsController < ApplicationController
   def new
     @detail = Detail.new
     @inventorysession = Inventorysession.all
+    @inv_session = params[:inventorysession_id]
   end
 
   # GET /details/1/edit
   def edit
     @inventorysession = Inventorysession.all
+    @inv_session = @detail.inventorysession_id
   end
 
   # POST /details
@@ -46,7 +48,7 @@ class DetailsController < ApplicationController
   def update
     respond_to do |format|
       if @detail.update(detail_params)
-        format.html { redirect_to @detail, notice: 'Detail was successfully updated.' }
+        format.html { redirect_to "/inventories/" + @detail.inventorysession_id.to_s, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @detail }
       else
         format.html { render :edit }
@@ -73,6 +75,6 @@ class DetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detail_params
-      params.require(:detail).permit(:bhproduct_number, :inventorysession_id, :quantity)
+      params.require(:detail).permit(:bhproduct_number, :inventorysession_id, :quantity, :count_type)
     end
 end

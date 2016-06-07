@@ -16,7 +16,7 @@ class InventoryController < InventorysessionsController
     respond_to do |format|
       format.html
       format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"details-export.csv\""
+        headers['Content-Disposition'] = "attachment; filename=\"" + @inventorysession.truck.trucknumber.to_s + "_" + Time.now.in_time_zone("Eastern Time (US & Canada)").to_s + "details-export.csv\""
         headers['Content-Type'] ||= 'text/csv'
       end
     end

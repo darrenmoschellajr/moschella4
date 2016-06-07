@@ -1,0 +1,38 @@
+<h1>Par Levels</h1>
+
+<table class="details">
+  <% @count = 0 %>
+  <thead>
+    <tr>
+      <th>Truck</th>
+      <th>Product</th>
+      <th>Number</th>
+      <th>Day</th>
+      <th>Par level</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @par_levels.each do |par_level| %>
+      <% @count = @count + 1 %>
+      <% if ((@count.to_i % 2) == 0) %>
+        <tr class="even">
+      <% else %>
+        <tr class="odd">
+      <% end %>
+        <td><%= par_level.truck.name %></td>
+        <td><%= par_level.bhproduct_number %></td>
+        <td><%= Product.find_by(bhproduct_number: par_level.bhproduct_number).name %></td>
+        <td><%= par_level.day %></td>
+        <td><%= par_level.parlevel %></td>
+        <td><%= link_to 'Edit', edit_par_level_path(par_level), class: "btn small" %></td>
+        <td><%= link_to 'Delete', par_level, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn small negative" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Par level', new_par_level_path, class: "btn primary left" %>

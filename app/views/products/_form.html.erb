@@ -19,6 +19,14 @@
     <%= f.label :bhproduct_number %><br>
     <%= f.number_field :bhproduct_number %>
   </div>
+  <div class="field">
+    <%= f.label "Count Preference" %><br>
+    <%= f.select :count_preference, (["Case","Piece"]) %>
+  </div>
+  <div class="field">
+    <%= f.label "Count per case" %><br>
+    <%= f.number_field :case_amount %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -21,7 +21,7 @@
         <tr class="odd">
       <% end %>
         <td><%= detail.bhproduct_number %></td>
-        <td><%= detail.quantity %></td>
+        <td><%= detail.quantity %>&nbsp;<%= detail.count_type %></td>
         <td><%= detail.inventorysession_id %></td>
         <td><%= Product.find_by(bhproduct_number: detail.bhproduct_number).name %></td>
         <td><%= link_to 'Show', detail, class: "btn small" %></td>

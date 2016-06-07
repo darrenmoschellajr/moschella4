@@ -1,5 +1,4 @@
 <h1>Editing Detail</h1>
 <%= render 'form' %>
 
-<%= link_to 'Show', @detail %> |
-<%= link_to 'Back', details_path %>
+<%= link_to 'Back', '/inventories/' + @inv_session.to_s, class: "btn small left" %>

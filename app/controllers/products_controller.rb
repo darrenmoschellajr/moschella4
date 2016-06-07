@@ -5,17 +5,22 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    
+
     p = Product.find_by bhproduct_number: (params['bhproduct_number'])
     if p
       pname = p.name
+      if p.count_preference
+        p_count_preference = p.count_preference
+      else
+        p_count_preference = "Piece"
+      end
       response = "OK"
     else
       response = "BAD"
     end
 
     respond_to do |format|
-      msg = { :response => response, :name => pname}
+      msg = { :response => response, :name => pname, :count_preference => p_count_preference}
       format.json {render :json => msg}
       format.html {}
     end
@@ -83,6 +88,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :bhproduct_number)
+      params.require(:product).permit(:name, :bhproduct_number, :case_amount, :count_preference)
     end
 end

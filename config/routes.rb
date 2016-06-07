@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :par_levels
   resources :people
   resources :products
   resources :details

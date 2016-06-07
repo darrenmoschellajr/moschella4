@@ -7,6 +7,9 @@ unlockButton = (data)->
    $('#productLookupResult').removeClass("alert-danger")
    $('#productLookupResult').addClass("alert-success")
    return
+setCountPreference = (data)->
+  $("#detail_count_type").val(data.count_preference)
+  return
 lockButtonError = (data)->
    $("#detailsSubmit").prop('disabled', true)
    $('#productLookupResult').html("Cannot find Product")
@@ -23,6 +26,7 @@ verifyProduct = (val)->
     $.get '/products.json?bhproduct_number=' + val,
       (data) ->
         unlockButton(data) if data.response == "OK"
+        setCountPreference(data) if data.response == "OK"
         lockButtonError(data) if data.response != "OK"
         return
     return

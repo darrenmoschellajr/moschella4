@@ -21,17 +21,19 @@
   <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
+    <%= f.select :count_type, (["","Case","Piece"]), :class => "count_type" %>
   </div>
-  <% if params.has_key?(:inventorysession_id) %>
+  <% if @inv_session %>
     <div class="field hidden">
       <%= f.label :inventorysession_id %><br>
-      <%= f.number_field :inventorysession_id, :value => params[:inventorysession_id]  %>
+      <%= f.number_field :inventorysession_id, :value => @inv_session %>
   <% else %>
     <div class="field">
       <%= f.label :inventorysession_id %><br>
       <%= f.number_field :inventorysession_id %>
    <% end %>
   </div>
+      <p><%=@inv_param %></p>
   <div class="actions">
     <%= f.submit "Submit", :disabled => true, :id => "detailsSubmit"%>
   </div>

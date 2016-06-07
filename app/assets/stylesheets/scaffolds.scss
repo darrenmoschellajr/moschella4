@@ -59,6 +59,11 @@ a.btn {
         background: #bbb;
       }
   }
+  &.primary{
+    &.left{
+    float: left;
+    }
+  }
 }
 
 div {
@@ -108,6 +113,7 @@ th{
 .field{
   select{
   font-size: 16px;
+  height: 26px;
   }
 }
 tr{

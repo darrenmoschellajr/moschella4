@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522212608) do
+ActiveRecord::Schema.define(version: 20160607215712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160522212608) do
     t.integer  "inventorysession_id", null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "count_type"
   end
 
   create_table "inventorysessions", force: :cascade do |t|
@@ -29,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160522212608) do
     t.integer  "truck_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "par_levels", force: :cascade do |t|
+    t.integer  "truck_id"
+    t.integer  "bhproduct_number"
+    t.string   "day"
+    t.integer  "parlevel"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "count_type"
   end
 
   create_table "people", force: :cascade do |t|
@@ -45,6 +56,8 @@ ActiveRecord::Schema.define(version: 20160522212608) do
     t.integer  "bhproduct_number", null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "count_preference"
+    t.integer  "case_amount"
   end
 
   create_table "todos", force: :cascade do |t|

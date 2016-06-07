@@ -1,0 +1,35 @@
+<%= form_for(@par_level) do |f| %>
+  <% if @par_level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@par_level.errors.count, "error") %> prohibited this par_level from being saved:</h2>
+
+      <ul>
+      <% @par_level.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :truck_id %><br>
+    <%= collection_select(:par_level, :truck_id, @trucks, :id, :name, {:prompt =>false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :bhproduct_number %><br>
+    <%= f.number_field :bhproduct_number %>
+  </div>
+  <div class="field">
+    <%= f.label :day %><br>
+    <% @days = ([['Monday', 'Monday'], ['Tuesday', 'Tuesday'], ['Wednesday', 'Wednesday'],['Thursday', 'Thursday'],['Friday', 'Friday'],['Saturday', 'Saturday'],['Sunday', 'Sunday']]) %>
+    <%= f.select :day, (@days) %>
+  </div>
+  <div class="field">
+    <%= f.label :parlevel %><br>
+    <%= f.number_field :parlevel %>
+    <%= f.select :count_type, (["Piece","Case"]), :class => "count_type" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

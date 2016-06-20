@@ -10,6 +10,9 @@ unlockButton = (data)->
 setCountPreference = (data)->
   $("#par_level_count_type").val(data.count_preference)
   return
+alertNoCaseCount = (data)->
+  $("#noCaseAmount").html("This product does not have a case amount")
+  return
 lockButtonError = (data)->
    $("#parLevelSubmit").prop('disabled', true)
    $('#productLookupResult').html("Cannot find Product")
@@ -27,6 +30,7 @@ verifyProduct = (val)->
       (data) ->
         unlockButton(data) if data.response == "OK"
         setCountPreference(data) if data.response == "OK"
+        alertNoCaseCount(data) if data.case_count == 0
         lockButtonError(data) if data.response != "OK"
         return
     return

@@ -9,10 +9,16 @@ class ProductsController < ApplicationController
     p = Product.find_by bhproduct_number: (params['bhproduct_number'])
     if p
       pname = p.name
+      p_id = p.id
       if p.count_preference
         p_count_preference = p.count_preference
       else
         p_count_preference = "Piece"
+      end
+      if p.case_amount
+        p_case_amount = p.case_amount
+        else
+        p_case_amount = 0
       end
       response = "OK"
     else
@@ -20,7 +26,7 @@ class ProductsController < ApplicationController
     end
 
     respond_to do |format|
-      msg = { :response => response, :name => pname, :count_preference => p_count_preference}
+      msg = { :response => response, :name => pname, :count_preference => p_count_preference, :case_count => p_case_amount, :id => p_id}
       format.json {render :json => msg}
       format.html {}
     end

@@ -42,14 +42,14 @@ class ParMainController < ApplicationController
           @order_amt = @par_amount - @cur_count
         end
         if @order_amt > 0
-          if @product.count_preference == 'Case'
+          if par_level.count_type == 'Case'
             @order = @order_amt / @case_count
-            if @order % @case_count > 0
+            if @order_amt % @case_count > 0
               @order = @order + 1
             end
-            @order_array.push(@product.name + " " + @order.to_s + " CS")
+            @order_array.push(@product.name + " - " + @product.bhproduct_number.to_s + " - " + @order.to_s + " CS")
             else
-              @order_array.push(@product.name + " " + @order_amt.to_s + " PC")
+              @order_array.push(@product.name + " - " + @product.bhproduct_number.to_s + " - " + @order_amt.to_s + " PC")
            end
         end
       end

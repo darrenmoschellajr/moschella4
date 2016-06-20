@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607215712) do
+ActiveRecord::Schema.define(version: 20160616040630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,19 @@ ActiveRecord::Schema.define(version: 20160607215712) do
   end
 
   create_table "par_levels", force: :cascade do |t|
-    t.integer  "truck_id"
     t.integer  "bhproduct_number"
-    t.string   "day"
     t.integer  "parlevel"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "count_type"
+    t.integer  "par_sheets_id"
+  end
+
+  create_table "par_sheets", force: :cascade do |t|
+    t.string   "day"
+    t.integer  "truck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|

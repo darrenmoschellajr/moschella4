@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Par Sheets</h1>
+<br>
+<table class="details" >
+  <% @count = 0 %>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Truck</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @par_sheets.each do |par_sheet| %>
+      <% @count = @count + 1 %>
+      <% if ((@count.to_i % 2) == 0) %>
+        <tr class="even">
+      <% else %>
+        <tr class="odd">
+      <% end %>
+        <td><%= par_sheet.day %></td>
+        <td><%= par_sheet.truck.name %></td>
+        <td><%= link_to 'View', par_levels_path(:par_sheet => par_sheet.id), class: "btn small" %></td>
+        <td><%= link_to 'Create Order', "/par_main/order?par_sheet=" +  par_sheet.id.to_s, class: "btn small" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+<%= link_to 'Back', "/par_main", class: "btn small left" %>

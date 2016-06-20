@@ -14,7 +14,7 @@
     <% @count = 0 %>
     <tbody>
       <th>Product #</th><th>Name</th><th>Count</th><th>&nbsp;</th>
-  <% @inventorysession.detail.each do |detail| %>
+  <% @inventorysession.detail.order(updated_at: :desc).each do |detail| %>
       <% @count = @count + 1 %>
       <% if ((@count.to_i % 2) == 0) %>
         <tr class="even">

@@ -2,5 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @par_level %> |
-<%= link_to 'Back', par_levels_path %>
+<%= link_to 'Back', par_levels_path(:par_sheet => @par_level.par_sheets_id), class: "btn small left" %>

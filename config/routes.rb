@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :par_sheets
   resources :par_levels
   resources :people
   resources :products
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
   get 'inventories', to: 'inventory#index'
   get 'inventories/:id', to: 'inventory#show'
   get 'inventorymain', to: 'inventorymain#index'
-
+  get 'par_main', to: 'par_main#index'
+  get 'par_main/order', to: 'par_main#order'
+  get 'par_main/run', to: 'par_main#run'
 
   resources :todos
   # The priority is based upon order of creation: first created -> highest priority.

@@ -33,7 +33,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.save
         @sessionid = @detail.inventorysession_id
-        @success_message = @detail.quantity.to_s + " pieces - " + Product.find_by(bhproduct_number: @detail.bhproduct_number).name
+        @success_message = @detail.quantity.to_s + " " + @detail.count_type + " " + Product.find_by(bhproduct_number: @detail.bhproduct_number).name
         format.html { redirect_to new_detail_path(:inventorysession_id => @sessionid), notice: @success_message}
         format.json { render :show, status: :created, location: @detail }
       else

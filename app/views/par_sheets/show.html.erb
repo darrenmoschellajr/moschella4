@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @par_sheet.day %>
+</p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @par_sheet.truck_id %>
+</p>
+
+<%= link_to 'Edit', edit_par_sheet_path(@par_sheet) %> |
+<%= link_to 'Back', par_sheets_path %>

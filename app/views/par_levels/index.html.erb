@@ -1,13 +1,15 @@
 <h1>Par Levels</h1>
 
+<%= link_to 'Add Par level', new_par_level_path(:par_sheet => params[:par_sheet]), class: "btn primary left" %>
+<br><br><br><br>
+
+
 <table class="details">
   <% @count = 0 %>
   <thead>
     <tr>
-      <th>Truck</th>
       <th>Product</th>
       <th>Number</th>
-      <th>Day</th>
       <th>Par level</th>
       <th colspan="2"></th>
     </tr>
@@ -21,11 +23,9 @@
       <% else %>
         <tr class="odd">
       <% end %>
-        <td><%= par_level.truck.name %></td>
-        <td><%= par_level.bhproduct_number %></td>
         <td><%= Product.find_by(bhproduct_number: par_level.bhproduct_number).name %></td>
-        <td><%= par_level.day %></td>
-        <td><%= par_level.parlevel %></td>
+        <td><%= par_level.bhproduct_number %></td>
+        <td><%= par_level.parlevel %> <%= par_level.count_type %></td>
         <td><%= link_to 'Edit', edit_par_level_path(par_level), class: "btn small" %></td>
         <td><%= link_to 'Delete', par_level, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn small negative" %></td>
       </tr>
@@ -33,6 +33,7 @@
   </tbody>
 </table>
 
-<br>
+<br><br>
+<%= link_to 'Back', par_sheets_path, class: "btn small left" %>
 
-<%= link_to 'New Par level', new_par_level_path, class: "btn primary left" %>
+

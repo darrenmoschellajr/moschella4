@@ -1,0 +1,26 @@
+<%= form_for(@par_sheet) do |f| %>
+  <% if @par_sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@par_sheet.errors.count, "error") %> prohibited this par_sheet from being saved:</h2>
+
+      <ul>
+      <% @par_sheet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day %><br>
+    <% @days = ([['Monday', 'Monday'], ['Tuesday', 'Tuesday'], ['Wednesday', 'Wednesday'],['Thursday', 'Thursday'],['Friday', 'Friday'],['Saturday', 'Saturday'],['Sunday', 'Sunday']]) %>
+    <%= f.select :day, (@days) %>
+  </div>
+  <div class="field">
+    <%= f.label :truck_id %><br>
+    <%= collection_select(:par_sheet, :truck_id, @trucks, :id, :name, {:prompt =>false}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -10,26 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :truck_id %><br>
-    <%= collection_select(:par_level, :truck_id, @trucks, :id, :name, {:prompt =>false}) %>
-  </div>
-  <div class="field">
-    <%= f.label :bhproduct_number %><br>
+  <div class="field" style="margin-bottom:0px">
+    <%= f.label "Product Number" %><br>
     <%= f.number_field :bhproduct_number %>
+    <div class="productLookupResult alert" id="productLookupResult" style="width:170px">
+      &nbsp;
+    </div>
   </div>
   <div class="field">
-    <%= f.label :day %><br>
-    <% @days = ([['Monday', 'Monday'], ['Tuesday', 'Tuesday'], ['Wednesday', 'Wednesday'],['Thursday', 'Thursday'],['Friday', 'Friday'],['Saturday', 'Saturday'],['Sunday', 'Sunday']]) %>
-    <%= f.select :day, (@days) %>
-  </div>
-  <div class="field">
-    <%= f.label :parlevel %><br>
+    <%= f.label "Par Level" %><br>
     <%= f.number_field :parlevel %>
     <%= f.select :count_type, (["Piece","Case"]), :class => "count_type" %>
   </div>
+  <% if @par_sheet %>
+    <div class="field hidden">
+      <%= f.label :par_sheets_id %><br>
+      <%= f.number_field :par_sheets_id, :value => @par_sheet %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= f.label :par_sheets_id %><br>
+      <%= f.number_field :par_sheets_id %>
+    </div>
+   <% end %>
+  <br><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :disabled => true, :id => "parLevelSubmit" %>
   </div>
 <% end %>

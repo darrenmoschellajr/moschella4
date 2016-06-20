@@ -1,5 +1,9 @@
 <h1>Products</h1>
-
+<br>
+<%= link_to 'Add Product', new_product_path, class: "btn small left" %>
+<br><br>
+<%= link_to 'Back', '/', class: "btn small left" %>
+<br><br>
 <table class="details">
   <% @count = 0 %>
   <thead>
@@ -32,5 +36,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>

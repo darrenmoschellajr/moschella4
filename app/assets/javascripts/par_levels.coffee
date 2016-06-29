@@ -11,7 +11,7 @@ setCountPreference = (data)->
   $("#par_level_count_type").val(data.count_preference)
   return
 alertNoCaseCount = (data)->
-  $("#noCaseAmount").html("This product does not have a case amount")
+  $("#noCaseAmount").html("<a href=\"/products/"+ data.id + "/edit\" target=\"_new\">This product does not have a case amount</a>")
   return
 lockButtonError = (data)->
    $("#parLevelSubmit").prop('disabled', true)
